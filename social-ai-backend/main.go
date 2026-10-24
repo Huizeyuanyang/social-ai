@@ -1,21 +1,19 @@
 package main
 
 import (
-   "socialai/handler"
-   "socialai/backend"
-   "fmt"
-   "log"
-   "net/http"
+	"fmt"
+	"log"
+	"net/http"
+	"socialai/backend"
+	"socialai/handler"
 )
 
 func main() {
-    fmt.Println("started-service")
+	fmt.Println("started-service")
 
-    backend.InitElasticsearchBackend()
-    
-    backend.InitGCSBackend()
+	backend.InitElasticsearchBackend()
 
-    log.Fatal(http.ListenAndServe(":8080", handler.InitRouter()))
+	backend.InitGCSBackend()
+
+	log.Fatal(http.ListenAndServe(":8080", handler.InitRouter()))
 }
-
-
