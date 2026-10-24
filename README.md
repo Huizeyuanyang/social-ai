@@ -113,6 +113,14 @@ npm install
 npm start
 ```
 
+**One-click start (Windows)**
+
+After completing the setup above once (Google Cloud login, `.env`, `npm install`), make sure Docker Desktop is running and double-click `start.bat` in the project root. It will:
+
+1. Start Elasticsearch with Docker Compose
+2. Wait until Elasticsearch is ready
+3. Open the backend and the frontend in two new terminal windows
+
 ## Author
 
 Huizeyuanyang — [GitHub](https://github.com/Huizeyuanyang)
