@@ -15,6 +15,9 @@ import (
 
 var mySigningKey = []byte("secret")
 
+// Usernames may only contain lowercase letters and digits
+var usernamePattern = regexp.MustCompile(`^[a-z0-9]+$`)
+
 func signinHandler(w http.ResponseWriter, r *http.Request) {
     fmt.Println("Received one signin request")
     w.Header().Set("Content-Type", "text/plain")
@@ -69,7 +72,7 @@ func signupHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    if user.Username == "" || user.Password == "" || regexp.MustCompile(`^[a-z0-9]$`).MatchString(user.Username) {
+    if user.Username == "" || user.Password == "" || !usernamePattern.MatchString(user.Username) {
         http.Error(w, "Invalid username or password", http.StatusBadRequest)
         fmt.Printf("Invalid username or password\n")
         return
