@@ -1,0 +1,7 @@
+# compiled binary
+main
+main.exe
+*.exe
+
+# local env files
+.env

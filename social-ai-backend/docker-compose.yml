@@ -1,0 +1,17 @@
+name: social-ai
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.25
+    environment:
+      - discovery.type=single-node          # one node is enough for local dev
+      - xpack.security.enabled=true         # require username/password
+      - ELASTIC_PASSWORD=welcome            # password for the built-in "elastic" user (local only)
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m      # limit memory to 512MB
+    ports:
+      - "9200:9200"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+
+volumes:
+  es-data:
