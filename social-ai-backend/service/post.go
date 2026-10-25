@@ -57,3 +57,27 @@ func SavePost(post *model.Post, file multipart.File) error {
 
 	return backend.ESBackend.SaveToES(post, constants.POST_INDEX, post.Id)
 }
+
+func DeletePost(postId string, user string) (bool, error) {
+	query := elastic.NewTermQuery("id", postId)
+	searchResult, err := backend.ESBackend.ReadFromES(query, constants.POST_INDEX)
+	if err != nil {
+		return false, err
+	}
+	posts := getPostFromSearchResult(searchResult)
+
+	if len(posts) == 0 {
+		return false, nil
+	}
+	if posts[0].User != user {
+		return false, nil
+	}
+
+	if err := backend.GCSBackend.DeleteFromGCS(postId); err != nil {
+		return false, err
+	}
+	if err := backend.ESBackend.DeleteFromES(constants.POST_INDEX, postId); err != nil {
+		return false, err
+	}
+	return true, nil
+}

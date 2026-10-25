@@ -96,3 +96,11 @@ func (backend *ElasticsearchBackend) SaveToES(i interface{}, index string, id st
 		Do(context.Background())
 	return err
 }
+
+func (backend *ElasticsearchBackend) DeleteFromES(index string, id string) error {
+	_, err := backend.client.Delete().
+		Index(index).
+		Id(id).
+		Do(context.Background())
+	return err
+}

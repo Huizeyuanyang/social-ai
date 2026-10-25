@@ -55,3 +55,8 @@ func (backend *GoogleCloudStorageBackend) SaveToGCS(r io.Reader, objectName stri
 	fmt.Printf("File is saved to GCS: %s\n", attrs.MediaLink)
 	return attrs.MediaLink, nil
 }
+
+func (backend *GoogleCloudStorageBackend) DeleteFromGCS(objectName string) error {
+	ctx := context.Background()
+	return backend.client.Bucket(backend.bucket).Object(objectName).Delete(ctx)
+}

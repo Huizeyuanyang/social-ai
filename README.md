@@ -20,6 +20,7 @@ A full-stack social media app where users can share images and videos, search po
 - **Create posts** with an image or video and a message; media files are stored in Google Cloud Storage
 - **Search posts** by keyword (full-text search on the message) or by username
 - **Browse** all posts in a photo gallery with an image / video tab view
+- **Delete your own posts**: removes the post from Elasticsearch and its media file from Cloud Storage; users cannot delete other users' posts
 - **AI image generation**: describe an image in words, generate it with OpenAI, and post it directly
 
 ## Tech Stack
@@ -81,6 +82,7 @@ SocialAI/
 | POST | `/upload` | Create a post (multipart form: `message`, `media_file`) | JWT |
 | GET | `/search?keywords=...` | Search posts by keyword (empty = all posts) | JWT |
 | GET | `/search?user=...` | Search posts by username | JWT |
+| DELETE | `/post/{id}` | Delete one of your own posts | JWT |
 
 ## How to Run Locally
 

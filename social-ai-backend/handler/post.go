@@ -9,6 +9,7 @@ import (
 	"socialai/service"
 
 	jwt "github.com/form3tech-oss/jwt-go"
+	"github.com/gorilla/mux"
 	"github.com/pborman/uuid"
 )
 
@@ -92,4 +93,26 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Write(js)
 
+}
+
+func deleteHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Received one request for delete")
+
+	token := r.Context().Value("user")
+	claims := token.(*jwt.Token).Claims
+	username := claims.(jwt.MapClaims)["username"]
+
+	postId := mux.Vars(r)["id"]
+	success, err := service.DeletePost(postId, username.(string))
+	if err != nil {
+		http.Error(w, "Failed to delete post", http.StatusInternalServerError)
+		fmt.Printf("Failed to delete post %v\n", err)
+		return
+	}
+	if !success {
+		http.Error(w, "Post not found or not owned by user", http.StatusForbidden)
+		fmt.Println("Post not found or not owned by user")
+		return
+	}
+	fmt.Println("Post is deleted successfully.")
 }
