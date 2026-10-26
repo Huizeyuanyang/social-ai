@@ -48,7 +48,7 @@ const Overlay = styled.div`
 
 
 const MainContainer = styled.div`
- background-color: #27272a;
+ background: linear-gradient(135deg, #f4f0fa 0%, #e4dcf1 100%);
  height: 100%;
  min-height: 100vh;
 `;
@@ -176,7 +176,7 @@ const Landing = (props) => {
          sx={{
            marginTop: "128px",
            fontFamily: "Roboto",
-           color: "white",
+           color: "#3c2164",
            textDecoration: "none",
          }}
        >
@@ -189,7 +189,7 @@ const Landing = (props) => {
          sx={{
            mr: 2,
            fontFamily: "Roboto",
-           color: "white",
+           color: "#555",
            textDecoration: "none",
            margin: "0 20px",
            textAlign: "center",
@@ -208,6 +208,7 @@ const Landing = (props) => {
            width: "80%",
            maxWidth: "600px",
            borderRadius: "10px",
+           boxShadow: "0 6px 20px rgba(60, 33, 100, 0.15)",
            marginTop: "32px",
            marginBottom: "64px",
          }}

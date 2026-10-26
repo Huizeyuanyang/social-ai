@@ -38,7 +38,7 @@ function ResponsiveAppBar(props) {
   return (
     <AppBar
       position="static"
-      style={{ background: "black", top: 0, position: "fixed", zIndex: 1 }}
+      style={{ background: "black", top: 0, position: "fixed", zIndex: 1, backgroundColor: "#3c2164" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -63,7 +63,7 @@ function ResponsiveAppBar(props) {
               textDecoration: "none",
             }}
           >
-            WildCats Social AI
+            WildCats Social
           </Typography>
 
           {isLoggedIn && (
@@ -126,6 +126,8 @@ function ResponsiveAppBar(props) {
                   onClick={handleLogout}
                   sx={{
                     backgroundColor: "white",
+                    color: "#3c2164",
+                    borderColor: "white",
                   }}
                 >
                   Log out

@@ -1,9 +1,1 @@
-.register {
-  width: 500px;
-  margin: 200px auto;
-}
-
-.register-btn {
-  width: 100%;
-}
-
+/* Register page uses the shared styles in Login.css */

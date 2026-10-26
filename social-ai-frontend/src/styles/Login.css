@@ -1,9 +1,81 @@
-.login-form {
-  width: 300px;
-  margin: 200px auto;
+/* Shared styles for the login and register pages */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 96px 16px 40px; /* leave room for the fixed top bar */
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f4f0fa 0%, #e4dcf1 100%);
 }
 
-.login-form-button {
-  width: 300px;
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 36px 28px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(60, 33, 100, 0.15);
+  text-align: left;
 }
 
+.auth-title {
+  margin: 0 0 4px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--nu-purple);
+  text-align: center;
+}
+
+.auth-subtitle {
+  margin: 0 0 28px;
+  color: #888;
+  text-align: center;
+}
+
+.auth-card .ant-input-affix-wrapper {
+  border-radius: 8px;
+}
+
+.auth-card .ant-input-affix-wrapper:hover,
+.auth-card .ant-input-affix-wrapper-focused {
+  border-color: var(--nu-purple);
+}
+
+.auth-card .ant-input-affix-wrapper-focused {
+  box-shadow: 0 0 0 2px rgba(60, 33, 100, 0.15);
+}
+
+.auth-card .ant-input-prefix {
+  color: var(--nu-purple);
+  margin-right: 8px;
+}
+
+.auth-btn.ant-btn-primary {
+  height: 44px;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: var(--nu-purple);
+  border-color: var(--nu-purple);
+}
+
+.auth-btn.ant-btn-primary:hover,
+.auth-btn.ant-btn-primary:focus {
+  background-color: var(--nu-purple-light);
+  border-color: var(--nu-purple-light);
+}
+
+.auth-footer {
+  margin: 4px 0 0;
+  text-align: center;
+  color: #666;
+}
+
+.auth-footer a {
+  color: var(--nu-purple);
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  color: var(--nu-purple-light);
+}

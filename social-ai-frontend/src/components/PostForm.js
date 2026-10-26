@@ -24,6 +24,7 @@ export const PostForm = forwardRef((props, formRef) => {
       >
         <Input />
       </Form.Item>
+
       <Form.Item label="Dragger">
         <Form.Item
           name="uploadPost"
@@ -37,7 +38,7 @@ export const PostForm = forwardRef((props, formRef) => {
             },
           ]}
         >
-          <Upload.Dragger name="files" beforeUpload={() => false}>
+          <Upload.Dragger name="files" accept="image/*,video/*" beforeUpload={() => false}>
             <p className="ant-upload-drag-icon">
               <InboxOutlined />
             </p>
@@ -47,6 +48,7 @@ export const PostForm = forwardRef((props, formRef) => {
           </Upload.Dragger>
         </Form.Item>
       </Form.Item>
+
     </Form>
   );
 });

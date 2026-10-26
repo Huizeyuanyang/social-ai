@@ -11,17 +11,10 @@ class CreatePostButton extends Component {
     confirmLoading: false,
   };
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
+  showModal = () => {this.setState({visible: true})};
 
   handleOk = () => {
-    this.setState({
-      confirmLoading: true,
-    });
-
+    this.setState({confirmLoading: true});
     // get form data
     this.postForm
       .validateFields()
@@ -67,7 +60,6 @@ class CreatePostButton extends Component {
   };
 
   handleCancel = () => {
-    console.log("Clicked cancel button");
     this.setState({
       visible: false,
     });

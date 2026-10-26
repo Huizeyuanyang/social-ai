@@ -10,7 +10,6 @@ function Login(props) {
   const { handleLoggedIn } = props;
 
   const onFinish = (values) => {
-    console.log("values", values);
     const { username, password } = values;
     const option = {
       method: "POST",
@@ -26,7 +25,7 @@ function Login(props) {
         if (res.status === 200) {
           const { data } = res;
           handleLoggedIn(data);
-          message.success("Login succeeded! ");
+          message.success("Login succeeded!");
         }
       })
       .catch((err) => {
@@ -36,49 +35,38 @@ function Login(props) {
   };
 
   return (
-    <Form name="normal_login" className="login-form" onFinish={onFinish}>
-      <Form.Item
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: "Please input your Username!",
-          },
-        ]}
-      >
-        <Input
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Username"
-        />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your Password!",
-          },
-        ]}
-      >
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
-      </Form.Item>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2 className="auth-title">Welcome back</h2>
+        <p className="auth-subtitle">Log in to share and discover posts</p>
 
-      <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          className="login-form-button"
-          style={{ backgroundColor: "black" }}
-        >
-          Log in
-        </Button>
-        Or <Link to="/register">register now!</Link>
-      </Form.Item>
-    </Form>
+        <Form name="login" layout="vertical" size="large" onFinish={onFinish}>
+          <Form.Item
+            name="username"
+            rules={[{ required: true, message: "Please input your username!" }]}
+          >
+            <Input prefix={<UserOutlined />} placeholder="Username" />
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit" block className="auth-btn">
+              Log in
+            </Button>
+          </Form.Item>
+        </Form>
+
+        <p className="auth-footer">
+          Don't have an account? <Link to="/register">Register now</Link>
+        </p>
+      </div>
+    </div>
   );
 }
 

@@ -1,4 +1,5 @@
 .home {
-  width: 100%;
-  margin: 200px auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 24px 40px; /* leave room for the fixed top bar */
 }

@@ -1,0 +1,41 @@
+/* Northwestern purple theme for Ant Design components */
+:root {
+  --nu-purple: #3c2164;
+  --nu-purple-light: #4e2a84;
+}
+
+.ant-btn-primary,
+.ant-btn-primary:focus {
+  background-color: var(--nu-purple);
+  border-color: var(--nu-purple);
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--nu-purple-light);
+  border-color: var(--nu-purple-light);
+}
+
+.ant-tabs-ink-bar {
+  background: var(--nu-purple);
+}
+
+.ant-tabs-tab:hover,
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--nu-purple);
+}
+
+.ant-radio-checked .ant-radio-inner,
+.ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: var(--nu-purple);
+}
+
+.ant-radio-inner::after {
+  background-color: var(--nu-purple);
+}
+
+.ant-input:hover,
+.ant-input:focus,
+.ant-input-focused {
+  border-color: var(--nu-purple);
+  box-shadow: none;
+}
