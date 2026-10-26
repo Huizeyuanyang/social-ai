@@ -3,6 +3,7 @@ import ResponsiveAppBar from "./ResponsiveAppBar";
 import Main from "./Main";
 
 import { TOKEN_KEY } from "../constants";
+import { getUsername } from "../utils/auth";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -21,9 +22,15 @@ function App() {
     }
   };
 
+  const username = isLoggedIn ? getUsername(localStorage.getItem(TOKEN_KEY)) : "";
+
   return (
     <div className="App">
-      <ResponsiveAppBar isLoggedIn={isLoggedIn} handleLogout={logout} />
+      <ResponsiveAppBar
+        isLoggedIn={isLoggedIn}
+        username={username}
+        handleLogout={logout}
+      />
       <Main isLoggedIn={isLoggedIn} handleLoggedIn={loggedIn} />
     </div>
   );

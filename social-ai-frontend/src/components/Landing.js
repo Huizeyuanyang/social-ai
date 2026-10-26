@@ -108,7 +108,7 @@ const Landing = (props) => {
      setGeneratedImageUrl(image_url);
    } catch (err) {
       console.error(err);
-      message.error("soemthign went wrong");
+      message.error("Something went wrong");
    } finally {
       setIsGeneratingImage(false);
    }
@@ -149,7 +149,7 @@ const Landing = (props) => {
            }
          })
          .catch(() => {
-           message.error("uplaod failed");
+           message.error("Upload failed");
          })
          .finally(() => {
            setIndex(-1);
@@ -229,12 +229,15 @@ const Landing = (props) => {
      </HeaderContainer>
 
 
-     <PhotoAlbum
-       photos={slicedPhotos}
-       layout="rows"
-       targetRowHeight={200}
-       onClick={({ index }) => setIndex(index)}
-     />
+     {/* Keep the generated image a fixed size instead of stretching to full width */}
+     <div style={{ width: "320px", maxWidth: "90%", margin: "0 auto", paddingBottom: "48px" }}>
+       <PhotoAlbum
+         photos={slicedPhotos}
+         layout="rows"
+         targetRowHeight={200}
+         onClick={({ index }) => setIndex(index)}
+       />
+     </div>
 
 
      <Lightbox

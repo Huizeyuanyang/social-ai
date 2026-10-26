@@ -12,11 +12,12 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate, useLocation } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
 import LogoutIcon from "@mui/icons-material/Logout";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const pages = ["Create", "Collection"];
 
 function ResponsiveAppBar(props) {
-  const { isLoggedIn, handleLogout } = props;
+  const { isLoggedIn, username, handleLogout } = props;
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const navigate = useNavigate();
@@ -104,6 +105,9 @@ function ResponsiveAppBar(props) {
                       <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
                   ))}
+                  <MenuItem onClick={() => handleNavigate("Profile")}>
+                    <Typography textAlign="center">Hi, {username}</Typography>
+                  </MenuItem>
                 </Menu>
               </Box>
 
@@ -131,9 +135,28 @@ function ResponsiveAppBar(props) {
                     {page}
                   </Button>
                 ))}
+                <Button
+                  startIcon={<AccountCircleIcon />}
+                  onClick={() => navigate("/profile")}
+                  sx={{
+                    my: 2,
+                    mr: 1,
+                    px: 2,
+                    color: "white",
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    backgroundColor:
+                      location.pathname === "/profile"
+                        ? "rgba(255, 255, 255, 0.25)"
+                        : "rgba(255, 255, 255, 0.08)",
+                    "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
+                  }}
+                >
+                  My Profile
+                </Button>
               </Box>
 
-              <Box sx={{ flexGrow: 0 }}>
+              <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
                 <Button
                   variant="outlined"
                   startIcon={<LogoutIcon />}

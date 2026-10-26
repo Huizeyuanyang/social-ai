@@ -6,13 +6,17 @@ A full-stack social media app where users can share images and videos, search po
 
 ## Screenshots
 
-| AI Image Generation | Collection |
+| Log In | AI Image Generation |
 |---|---|
-| ![Create](screenshots/create.png) | ![Collection](screenshots/collection.png) |
+| ![Log In](screenshots/login.png) | ![Create](screenshots/create.png) |
 
-| New Post | Search |
+| Collection | New Post |
 |---|---|
-| ![New Post](screenshots/new-post.png) | ![Search](screenshots/search.png) |
+| ![Collection](screenshots/collection.png) | ![New Post](screenshots/new-post.png) |
+
+| Search | Profile |
+|---|---|
+| ![Search](screenshots/search.png) | ![Profile](screenshots/profile.png) |
 
 ## Features
 
@@ -21,6 +25,7 @@ A full-stack social media app where users can share images and videos, search po
 - **Search posts** by keyword (full-text search on the message) or by username
 - **Browse** all posts in a photo gallery with an image / video tab view
 - **Delete your own posts**: removes the post from Elasticsearch and its media file from Cloud Storage; users cannot delete other users' posts
+- **Profile page**: shows your username, post count, and all of your own posts
 - **AI image generation**: describe an image in words, generate it with OpenAI, and post it directly
 
 ## Tech Stack

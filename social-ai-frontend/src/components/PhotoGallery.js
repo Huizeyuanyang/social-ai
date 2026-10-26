@@ -79,6 +79,7 @@ function PhotoGallery(props) {
           if (res.status === 200) {
             // step1: set state
             setImages(newImageArr);
+            if (props.onDeleted) props.onDeleted(postId);
           }
         })
         .catch((err) => {
@@ -146,6 +147,7 @@ PhotoGallery.propTypes = {
       thumbnailHeight: PropTypes.number.isRequired,
     })
   ).isRequired,
+  onDeleted: PropTypes.func,
 };
 
 export default PhotoGallery;
