@@ -3,6 +3,8 @@
 A full-stack social media app where users can share images and videos, search posts, and create new images with AI. Built with a **React** frontend and a **Go** backend, using **Elasticsearch** for search and **Google Cloud Storage** for media files.
 
 <!-- Demo video: add later -->
+## Demo
+https://github.com/user-attachments/assets/51045501-77a4-4d2b-8b9f-5c8cb86ebd4e
 
 ## Screenshots
 
