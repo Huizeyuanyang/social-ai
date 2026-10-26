@@ -100,8 +100,8 @@ function PhotoGallery(props) {
     <div style={wrapperStyle}>
       <PhotoAlbum
         photos={imageArr}
-        layout="rows"
-        targetRowHeight={200}
+        layout="columns"
+        columns={(width) => (width < 600 ? 2 : width < 900 ? 3 : 4)}
         onClick={updateIndex}
       />
       <Lightbox

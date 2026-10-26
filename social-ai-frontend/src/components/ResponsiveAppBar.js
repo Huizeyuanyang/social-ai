@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PublicIcon from "@mui/icons-material/Public";
 import LogoutIcon from "@mui/icons-material/Logout";
 
@@ -20,6 +20,7 @@ function ResponsiveAppBar(props) {
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -63,7 +64,7 @@ function ResponsiveAppBar(props) {
               textDecoration: "none",
             }}
           >
-            WildCats Social
+            CatsSocial
           </Typography>
 
           {isLoggedIn && (
@@ -112,7 +113,20 @@ function ResponsiveAppBar(props) {
                   <Button
                     key={page}
                     onClick={() => handleNavigate(page)}
-                    sx={{ my: 2, color: "white", display: "block" }}
+                    sx={{
+                      my: 2,
+                      mr: 1,
+                      px: 2,
+                      color: "white",
+                      display: "block",
+                      borderRadius: "8px",
+                      // highlight the button of the current page
+                      backgroundColor:
+                        location.pathname === `/${page.toLowerCase()}`
+                          ? "rgba(255, 255, 255, 0.25)"
+                          : "rgba(255, 255, 255, 0.08)",
+                      "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.3)" },
+                    }}
                   >
                     {page}
                   </Button>

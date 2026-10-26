@@ -83,7 +83,7 @@ function Collection(props) {
     } else if (type === "video") {
       filtered = posts.filter((post) => post.type === "video");
       if (!filtered || filtered.length === 0) {
-        return <div>No videos!</div>;
+        return <div>This is a bad social plantform, no one use it for vedios.</div>;
       }
       return (
         <Row>
