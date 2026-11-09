@@ -36,7 +36,7 @@ https://github.com/user-attachments/assets/51045501-77a4-4d2b-8b9f-5c8cb86ebd4e
 |---|---|
 | Frontend | React 18, React Router, Ant Design, Material UI, axios, react-photo-album |
 | Backend | Go, net/http, gorilla/mux, JWT middleware |
-| Search & Database | Elasticsearch 7 (Docker) |
+| Search & Database | Elasticsearch 7, deployed on Google Compute Engine (GCE); Docker for local development |
 | Media Storage | Google Cloud Storage |
 | AI | OpenAI image generation API |
 
